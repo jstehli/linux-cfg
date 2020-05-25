@@ -12,6 +12,13 @@ vim
 
 GNU pass
 .password-store is git enabled and pushed via cronjob (todo) to github repository
+pw's & metadata are stored in encrypted text files, using a directory structure like:
+~/.password-store/dirxyz/pwfile.gpg
+text files are structured like:
+
+pw
+login: login
+url: \*url.com* 
 
 ## Android Smartphone
 
