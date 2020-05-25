@@ -16,9 +16,9 @@ pw's & metadata are stored in encrypted text files, using a directory structure 
 ~/.password-store/dirxyz/pwfile.gpg
 text files are structured like:
 
-`pw\
-login: login
-url: \*url.com* `
+    pw
+    login: login
+    url: *url.com*
 
 ## Android Smartphone
 
