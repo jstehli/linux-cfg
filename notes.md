@@ -12,7 +12,9 @@ vim
 
 GNU pass
 
-.password-store is git enabled and pushed via cronjob (todo) to github repository
+.password-store is git enabled, backed up atm to github (this needs to change sometime)
+
+synced across devices using syncthing
 
 pw's & metadata are stored in encrypted text files, using a directory structure like:
 
@@ -23,6 +25,10 @@ text files are structured like:
     pw
     login: login
     url: *url.com*
+
+## Sync
+
+syncthing, todo (?): config to github repo
 
 ## Android Smartphone
 
