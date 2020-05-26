@@ -30,6 +30,13 @@ text files are structured like:
 
 syncthing, todo (?): config to github repo
 
+## Screen Setup
+
+Use `arandr` to configure & activate a setting for each setup, then save it to `autorandr` - you can always call autorandr after hotswapping screens afterwards.
+
+`autorandr` will also be called in the i3 config s.t. it starts with the correct setup
+
+
 ## Android Smartphone
 
 ### Password Manager
