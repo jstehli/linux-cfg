@@ -46,7 +46,7 @@ I use i3 window manager plus a set of tools to make it work:
 
 I have VPN access to the network of my university. They are using Cisco VPN, and I use the openconnect implementation, the respective command that works for me is
     
-    sudo openconnect --protocol=anyconnect --user=jstehli@student-net.ethz.ch --usergroup=student-net s    slvpn.ethz.ch
+    sudo openconnect --protocol=anyconnect --user=XXX@student-net.ethz.ch --usergroup=student-net sslvpn.ethz.ch
 
 ## Android Smartphone
 
