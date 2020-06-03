@@ -41,6 +41,10 @@ Connect to a wireless network from command line -> arch wiki NetworkManager
 
 Arch comes with very minimal fonts. To make i3 start correctly, I installed `adobe-source-code-pro-fonts`, `adobe-source-sans-pro-fonts` and `adobe-source-serif-pro-fonts`.
 
+## Terminal Emulator
+
+I use URXVT.
+
 ## Internet Browsing
 
 firefox with extensions: ublock origin (ad block), PassFF (password manager), Vimium (vim bindings)
