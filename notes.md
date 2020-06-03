@@ -53,6 +53,10 @@ firefox with extensions: ublock origin (ad block), PassFF (password manager), Vi
 
 vim
 
+## Audio
+
+While I started with installing `alsa-utils` and `alsa-plugins`, I ended up using `pulseaudio` with `pavucontrol` gui 
+
 ## Password Manager
 
 GNU pass
