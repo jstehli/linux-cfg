@@ -1,5 +1,46 @@
 # Linux Setup
 
+## Distro
+
+I use Arch Linux.
+
+## Arch installation
+
+I followed the installation guide. Some remarks:
+
+- Didn't have a physical network connection, did all via WiFi. In the installation, I set up the connection using `iwd`, now on the system I use NetworkManager. I followed the `iwd` guide in the arch wiki during installation to connect to wifi.
+
+- I set up 3 partitions using a GPT: UEFI start partition (260MiB), Main ext4 (rest), Swap (8GiB). Something went wrong with the fstab and the swap partition, which made boot super slow. I then commented out the swap line from fstab since systemd recognizes GPT swap partitions automatically. Now, everything runs fine.
+
+### Programs worth installing during installation
+
+    vim
+    vi
+    sudo
+    networkmanager
+    git
+    
+### User setup
+
+Add yourself as a user and add it to group wheel for sudo access. Also edit sudo cfg (`visudo`) to make sure that the wheel group gets sudo rights.
+
+
+## Display Server
+
+Xorg
+
+
+
+## Network Setup
+
+Install `networkmanager`, then `systemctl enable NetworkManager.service --now`
+
+Connect to a wireless network from command line -> arch wiki NetworkManager
+
+## Fonts
+
+Arch comes with very minimal fonts. To make i3 start correctly, I installed `adobe-source-code-pro-fonts`, `adobe-source-sans-pro-fonts` and `adobe-source-serif-pro-fonts`.
+
 ## Internet Browsing
 
 firefox with extensions: ublock origin (ad block), PassFF (password manager), Vimium (vim bindings)
@@ -31,6 +72,8 @@ text files are structured like:
 syncthing, todo (?): config to github repo
 
 ## Screen Setup
+
+All based on `xrandr`. 
 
 Use `arandr` to configure & activate a setting for each setup, then save it to `autorandr` - you can always call autorandr after hotswapping screens afterwards to check if the right config is detected. All should work automatically now if you save a profile for each setup.
 
