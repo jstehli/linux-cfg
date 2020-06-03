@@ -43,6 +43,8 @@ Also install `network-manager-applet` for a system tray icon.
 
 Arch comes with very minimal fonts. To make i3 start correctly, I installed `adobe-source-code-pro-fonts`, `adobe-source-sans-pro-fonts` and `adobe-source-serif-pro-fonts`.
 
+I also followed the guide in arch wiki -> fontconfig to enable sub pixel rgb rendering, via symlink. The fonts now look good!
+
 ## Terminal Emulator
 
 I use URXVT.
