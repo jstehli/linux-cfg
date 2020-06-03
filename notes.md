@@ -37,6 +37,8 @@ Install `networkmanager`, then `systemctl enable NetworkManager.service --now`
 
 Connect to a wireless network from command line -> arch wiki NetworkManager
 
+Also install `network-manager-applet` for a system tray icon. 
+
 ## Fonts
 
 Arch comes with very minimal fonts. To make i3 start correctly, I installed `adobe-source-code-pro-fonts`, `adobe-source-sans-pro-fonts` and `adobe-source-serif-pro-fonts`.
@@ -55,7 +57,7 @@ vim
 
 ## Audio
 
-While I started with installing `alsa-utils` and `alsa-plugins`, I ended up using `pulseaudio` with `pavucontrol` gui 
+While I started with installing `alsa-utils` and `alsa-plugins`, I ended up using `pulseaudio` with `pasystray` tray and `pavucontrol` control (can then be launched from tray!). 
 
 ## Password Manager
 
