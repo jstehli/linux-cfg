@@ -109,8 +109,13 @@ I have VPN access to the network of my university. They are using Cisco VPN, and
 
 ## various
 
-`sysstat` for system monitoring, this is a dependency of some i3blocks scripts
-`cbatticon` for battery tray icon
+- `sysstat` for system monitoring, this is a dependency of some i3blocks scripts
+
+- `cbatticon` for battery tray icon
+
+- `udisks2` with `udiskie` for mounting external media
+
+- `man-db` and `man-pages` for manuals
 
 ## Android Smartphone
 
