@@ -37,7 +37,7 @@ Install `networkmanager`, then `systemctl enable NetworkManager.service --now`
 
 Connect to a wireless network from command line -> arch wiki NetworkManager
 
-Also install `network-manager-applet` for a system tray icon. 
+Also install `network-manager-applet` for a system tray icon and `openssh` for SSH access.
 
 ## Fonts
 
