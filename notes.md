@@ -83,6 +83,8 @@ text files are structured like:
     login: login
     url: *url.com*
 
+You'll also need to install passFF host, click on the extension symbol in firefox for instructions (from github page..)
+
 ## Sync
 
 syncthing, todo (?): config to github repo
