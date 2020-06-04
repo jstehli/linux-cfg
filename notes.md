@@ -12,6 +12,8 @@ I followed the installation guide. Some remarks:
 
 - I set up 3 partitions using a GPT: UEFI start partition (260MiB), Main ext4 (rest), Swap (8GiB). Something went wrong with the fstab and the swap partition, which made boot super slow. I then commented out the swap line from fstab since systemd recognizes GPT swap partitions automatically. Now, everything runs fine.
 
+- I followed arch wiki to blacklist the PC Speaker to disable annoying beeps.
+
 ### Programs worth installing during installation
 
     vim
