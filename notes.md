@@ -37,6 +37,8 @@ Xorg
 
 Install `networkmanager`, then `systemctl enable NetworkManager.service --now`
 
+Install `networkmanager-openconnect` for Cisco VPN Connections if desired
+
 Connect to a wireless network from command line -> arch wiki NetworkManager
 
 Also install `network-manager-applet` for a system tray icon and `openssh` for SSH access.
