@@ -123,6 +123,8 @@ I have VPN access to the network of my university. They are using Cisco VPN, and
 
 - `man-db` and `man-pages` for manuals
 
+- `xclip` to pipe output of command into clipboard
+
 ## Android Smartphone
 
 ### Password Manager
