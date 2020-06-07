@@ -125,6 +125,12 @@ I have VPN access to the network of my university. They are using Cisco VPN, and
 
 - `xclip` to pipe output of command into clipboard
 
+## xorg additions
+
+`xorg-xbacklight` to change the laptop screen brightness
+
+`xorg-xev` to identify what key has been pressed
+
 ## Android Smartphone
 
 ### Password Manager
