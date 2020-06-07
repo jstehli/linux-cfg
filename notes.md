@@ -125,6 +125,10 @@ I have VPN access to the network of my university. They are using Cisco VPN, and
 
 - `xclip` to pipe output of command into clipboard
 
+- `scrot`, screenshots from command line
+
+- `imagemagick`, command line image manipulation
+
 ## xorg additions
 
 `xorg-xbacklight` to change the laptop screen brightness
