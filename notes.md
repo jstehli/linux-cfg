@@ -102,7 +102,8 @@ Use `arandr` to configure & activate a setting for each setup, then save it to `
 
 I use i3 window manager plus a set of tools to make it work:
 `numlockx` to turn num lock on after startup.
-
+## laptop stuff
+`tlp` for power management
 
 ## VPN
 :
