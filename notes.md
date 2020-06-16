@@ -64,6 +64,7 @@ vim
 ## Audio
 
 While I started with installing `alsa-utils` and `alsa-plugins`, I ended up using `pulseaudio` with `pasystray` tray and `pavucontrol` control (can then be launched from tray!). 
+`playerctl` lets you use multimedia keys.
 
 ## Password Manager
 
