@@ -131,6 +131,8 @@ I have VPN access to the network of my university. They are using Cisco VPN, and
 
 - `imagemagick`, command line image manipulation
 
+- `xkblayout-state` (from AUR), to query current keyboard layout for status bar 
+
 ## xorg additions
 
 `xorg-xbacklight` to change the laptop screen brightness
