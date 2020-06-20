@@ -31,7 +31,15 @@ Add yourself as a user and add it to group wheel for sudo access. Also edit sudo
 
 Xorg
 
+# Power Management
 
+Some scripts in my dotfiles repository allow locking before hibernating/sleeping.
+
+To make hibernation work, I followed the arch wiki.
+
+I installed tlp for power management (turned USB autosuspend off in the config, because my keyboard didn't wake up after hibernation).
+
+I also use acpid.
 
 ## Network Setup
 
