@@ -33,13 +33,13 @@ Xorg
 
 # Power Management
 
-Some scripts in my dotfiles repository allow locking before hibernating/sleeping.
+I have a lock script in my .dotfiles repo that blurs the screen before locking it with `i3lock`.
 
 To make hibernation work, I followed the arch wiki.
 
 I installed tlp for power management (turned USB autosuspend off in the config, because my keyboard didn't wake up after hibernation).
 
-I also use acpid.
+`xss-lock` allows locking the screen before suspending/hibernating.
 
 ## Network Setup
 
