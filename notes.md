@@ -78,6 +78,10 @@ vim
 While I started with installing `alsa-utils` and `alsa-plugins`, I ended up using `pulseaudio` with `pasystray` tray and `pavucontrol` control (can then be launched from tray!). 
 `playerctl` lets you use multimedia keys.
 
+## Backup
+
+I use an `rsync` script to backup to an external HD, automated by cron (I installed `cronie`)
+
 ## Password Manager
 
 GNU pass
