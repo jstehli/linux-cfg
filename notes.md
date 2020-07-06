@@ -1,5 +1,9 @@
 # Linux Setup
 
+## Laptop
+
+After spilling a coffee over my old Yoga Convertible, I bought a cheap Thinkpad 440 and updated it's RAM to 12GB. Arch runs smoothly.
+
 ## Distro
 
 I use Arch Linux.
@@ -8,11 +12,7 @@ I use Arch Linux.
 
 I followed the installation guide. Some remarks:
 
-- Didn't have a physical network connection, did all via WiFi. In the installation, I set up the connection using `iwd`, now on the system I use NetworkManager. I followed the `iwd` guide in the arch wiki during installation to connect to wifi.
-
-- I set up 3 partitions using a GPT: UEFI start partition (260MiB), Main ext4 (rest), Swap (8GiB). Something went wrong with the fstab and the swap partition, which made boot super slow. I then commented out the swap line from fstab since systemd recognizes GPT swap partitions automatically. Now, everything runs fine.
-
-- I followed arch wiki to blacklist the PC Speaker to disable annoying beeps.
+- I use BTRFS with snapper (have to check it out further to fully configure it to my needs, but looks awesome!). Followed this guide: https://www.youtube.com/watch?v=sm_fuBeaOqE
 
 ### Programs worth installing during installation
 
@@ -26,6 +26,10 @@ I followed the installation guide. Some remarks:
 
 Add yourself as a user and add it to group wheel for sudo access. Also edit sudo cfg (`visudo`) to make sure that the wheel group gets sudo rights.
 
+## Folder Structure
+
+I installed `xdg-user-dirs` to set the config dir - mutt will use this
+
 
 ## Display Server
 
@@ -37,7 +41,7 @@ I have a lock script in my .dotfiles repo that blurs the screen before locking i
 
 To make hibernation work, I followed the arch wiki.
 
-I installed tlp for power management (turned USB autosuspend off in the config, because my keyboard didn't wake up after hibernation).
+I installed tlp for power management (turned USB autosuspend off in the config, because my keyboard didn't wake up after hibernation). [not using TLP at the moment]
 
 `xss-lock` allows locking the screen before suspending/hibernating.
 
