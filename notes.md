@@ -35,7 +35,13 @@ I installed `xdg-user-dirs` to set the config dir - mutt will use this
 
 Xorg
 
-# Power Management
+## Keyboard
+
+I used the following sweet little command to allow me to switch to a Swiss-German keyboard setting via alt-shift:
+
+`localectl --no-convert set-x11-keymap us,ch grp:alt_shift_toggle`
+
+## Power Management
 
 I have a lock script in my .dotfiles repo that blurs the screen before locking it with `i3lock`.
 
