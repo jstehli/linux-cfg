@@ -39,7 +39,7 @@ Xorg
 
 I used the following sweet little command to allow me to switch to a Swiss-German keyboard setting via alt-shift:
 
-`localectl --no-convert set-x11-keymap us,ch grp:alt_shift_toggle`
+`localectl --no-convert set-x11-keymap us,ch "" "" grp:alt_shift_toggle`
 
 ## Power Management
 
