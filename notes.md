@@ -21,6 +21,16 @@ I followed the installation guide. Some remarks:
     sudo
     networkmanager
     git
+    rsync
+    htop
+    openssh
+    man-db
+    man-pages
+    i3lock
+    i3-wm
+    i3blocks
+    i3status
+    cronie
     
 ### User setup
 
