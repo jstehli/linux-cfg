@@ -32,6 +32,7 @@ I followed the installation guide. Some remarks:
     i3status
     cronie
     
+    
 ### User setup
 
 Add yourself as a user and add it to group wheel for sudo access. Also edit sudo cfg (`visudo`) to make sure that the wheel group gets sudo rights.
@@ -118,9 +119,22 @@ text files are structured like:
 
 You'll also need to install passFF host, click on the extension symbol in firefox for instructions (from github page..)
 
+## Keyring
+
+    gnome-keyring
+    seahorse
+    libsecret
+    
+Setup following arch wiki for autologin using user PW
+    
+
 ## Sync
 
 syncthing, todo (?): config to github repo
+
+## cloud
+
+    nextcloud-client
 
 ## Screen Setup
 
