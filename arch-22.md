@@ -129,8 +129,20 @@ Edit the file: Uncomment the line that gives the wheel group full power. Save.
 
 ### `mkinitcpio`
 
-    vim /etc/mkinitcpio.conf
-    
-Add `btrfs` under `MODULES`. Under `HOOKS`, add `encrypt` before `filesystems`.
-    
-    
+Edit `/etc/mkinitcpio.conf`. Add `btrfs` under `MODULES`. Under `HOOKS`, add `encrypt` before `filesystems`.
+Save end exit, then run `mkinitcpio -p linux`.
+
+### GRUB Config for Encryption
+
+Run `blkid` and copy the `UUID` (what is inside the quotes) of your encrypted device (**not** the `PARTUUID` and **not** the one of the mapper device).
+Then, edit `/etc/default/grub` and change the line that is `GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"` to:
+
+    GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet cryptdevice=UUID=[the UUID that you copied before]:cryptroot root=/dev/mapper/cryptroot"
+
+Regenerate the GRUB config file with `grub-mkconfig -o /boot/grub/grub.cfg`
+
+### Exit and Reboot
+
+`exit`, then `reboot`. You should be able to choose Arch Linux in GRUB and then enter the password for the encrypted device. Then, log back into Arch using `root`, because there is a lot of stuff to do.
+
+
