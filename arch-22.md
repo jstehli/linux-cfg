@@ -159,6 +159,8 @@ Regenerate the GRUB config file with `grub-mkconfig -o /boot/grub/grub.cfg`
 
 `exit`, then `reboot`. You should be able to choose Arch Linux in GRUB and then enter the password for the encrypted device. Then, log back into Arch using `root`, because there is a lot of admin stuff to do.
 
+If you are on wifi, set up a connection with `nmtui`.
+
 ### System 76 Driver
 
 Follow [this link](https://support.system76.com/articles/system76-driver).
