@@ -184,9 +184,9 @@ https://wiki.archlinux.org/title/Xorg
 
     sudo pacman -S xorg-server i3-wm xorg-xinit dmenu i3status
 
-### Shell
+### Shell & Terminal
 
-    pacman -S zsh
+    pacman -S zsh rxvt-unicode
 
 ### Dotfile Management
 
