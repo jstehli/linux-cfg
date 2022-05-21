@@ -120,7 +120,7 @@ I skip the "Initramfs" and "Bootloader" part, we're going to do this later.
 
 We should install a few things now.
 
-    pacman -S grub grub-btrfs efibootmgr intel-ucode networkmanager network-manager-applet wpa_supplicant rsync reflector sudo
+    pacman -S grub grub-btrfs efibootmgr intel-ucode lvm2 networkmanager network-manager-applet wpa_supplicant rsync reflector sudo
     
 ### Bootloader Config
 
@@ -139,17 +139,21 @@ Edit the file: Uncomment the line that gives the wheel group full power. Save.
 
 ### `mkinitcpio`
 
-Edit `/etc/mkinitcpio.conf`. Add `btrfs` under `MODULES`. Under `HOOKS`, add `encrypt` before `filesystems`.
+Edit `/etc/mkinitcpio.conf`. Add `btrfs` under `MODULES`. 
+Under `HOOKS`, add `keyboard` (delete the potential later occurence) and `keymap` after `autodetect, and `encrypt` and `lvm2` before `filesystems`.
 Save end exit, then run `mkinitcpio -p linux`.
 
 ### GRUB Config for Encryption
 
-Run `blkid` and copy the `UUID` (what is inside the quotes) of your encrypted device (**not** the `PARTUUID` and **not** the one of the mapper device).
+Run `blkid` and copy the `UUID` (what is inside the quotes) of your encrypted device (`system`, **not** the `PARTUUID` and **not** the one of a mapper device).
 Then, edit `/etc/default/grub` and change the line that is `GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"` to:
 
     GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet cryptdevice=UUID=[the UUID that you copied before]:cryptroot root=/dev/mapper/cryptroot"
 
 Regenerate the GRUB config file with `grub-mkconfig -o /boot/grub/grub.cfg`
+
+8d0d3cf1-9db8-4c1c-a091-6726783e7e73
+
 
 ### Exit and Reboot
 
