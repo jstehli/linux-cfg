@@ -157,12 +157,39 @@ Regenerate the GRUB config file with `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ### Exit and Reboot
 
-`exit`, then `reboot`. You should be able to choose Arch Linux in GRUB and then enter the password for the encrypted device. Then, log back into Arch using `root`, because there is a lot of admin stuff to do.
-
+`exit`, then `reboot`. You should be able to choose Arch Linux in GRUB and then enter the password for the encrypted device. Log into your account.
 If you are on wifi, set up a connection with `nmtui`.
+
+## AUR 
+
+Install `yay`.
+
+    sudo pacman -S --needed base-devel
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+
+## Set Up the System
 
 ### System 76 Driver
 
-Follow [this link](https://support.system76.com/articles/system76-driver).
+Follow [this link](https://support.system76.com/articles/system76-driver). If you installed `yay`, you simply can do
+
+    yay system76-driver
+    sudo systemctl enable --now system76
+
+### Display Server / Window Manager
+
+https://wiki.archlinux.org/title/Xorg
+
+    sudo pacman -S xorg-server i3-wm xorg-xinit
+
+### Shell
+
+    pacman -S zsh
+
+### Dotfile Management
+
+Use the bare git repo approach, documented all over the place.
 
 
