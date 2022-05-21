@@ -19,6 +19,7 @@ Start by using `lsblk` to figure out the label of your disk. In my case, I have 
 
     n
     1
+    [enter]
     +512M
     t
     1
@@ -33,6 +34,8 @@ I have 24 GB of RAM, so I'll create a swap partition of 32 GB to be on the safe 
     3
     [enter]
     [enter]
+
+Write the table with `w`.
   
 
 
