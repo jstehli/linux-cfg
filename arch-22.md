@@ -25,8 +25,51 @@ Start by using `lsblk` to figure out the label of your disk. In my case, I have 
     +512M
     t
     1
- 
-I have 24 GB of RAM, so I'll create a swap partition of 32 GB to be on the safe side as well. The rest will be used for the main partition. I like to have the swap partition as last partition. This can be achieved as follows.
+
+The rest of the disk will be one large partition that will later be encrypted.
+
+    n
+    2
+    [enter]
+    [enter]
+
+Write the table with `w`.
+
+### Format and Encrypt the Disk
+
+Format the EFI partition:
+
+    mkfs.fat -F32 /dev/nvme0n1p1
+
+We want to encrypt the system partition and unlock it. We use LUKS1, which actually should be the default option, but in the Arch wiki they tell us to specify it. LUKS2 seems to be buggy when used with GRUB. We call the mapped device `cryptlvm`.
+
+    cryptsetup luksFormat --type luks1 /dev/nvme0n1p2
+    [follow menu]
+    cryptsetup luksOpen /dev/nvme0n1p2 cryptlvm
+
+Create the LVM physical volume and volume group.
+
+    pvcreate /dev/mapper/cryptlvm
+    vgcreate LvmVolGroup /dev/mapper/cryptlvm
+
+Now create two logical volumes - system and swap. I have 24 GB RAM and use 32GB swap, to be on the safe side.
+
+    lvcreate -L 32G LvmVolGroup -n swap
+    lvcreate -l 100%FREE LvmVolGroup -n system
+
+Set up the swap partition:
+
+    mkswap /dev/nvme0n1p3
+    swapon /dev/nvme0n1p3
+
+
+
+
+
+
+
+    
+
 
     n
     2
@@ -40,24 +83,12 @@ I have 24 GB of RAM, so I'll create a swap partition of 32 GB to be on the safe 
     3
     19
 
-Write the table with `w`.
+
   
-### Format and Encrypt the Disk
 
-Format the EFI partition:
-
-    mkfs.fat -F32 /dev/nvme0n1p1
     
-Set up the swap partition:
+S
 
-    mkswap /dev/nvme0n1p3
-    swapon /dev/nvme0n1p3
-
-Before generating the BTRFS partition, we want to encrypt it and then unlock it. We use LUKS1, which actually should be the default option, but in the Arch wiki they tell us to specify it. LUKS2 seems to be buggy when used with GRUB. We call the mapped device `cryptroot`.
-
-    cryptsetup luksFormat --type luks1 /dev/nvme0n1p2
-    [follow menu]
-    cryptsetup luksOpen /dev/nvme0n1p2 cryptroot
     
 Now, create the file system.
 
