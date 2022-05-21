@@ -120,7 +120,7 @@ I skip the "Initramfs" and "Bootloader" part, we're going to do this later.
 
 We should install a few things now.
 
-    pacman -S grub grub-btrfs efibootmgr intel-ucode networkmanager network-manager-applet wpa_supplicant rsync reflector
+    pacman -S grub grub-btrfs efibootmgr intel-ucode networkmanager network-manager-applet wpa_supplicant rsync reflector sudo
     
 ### Bootloader Config
 
