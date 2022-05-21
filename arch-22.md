@@ -140,7 +140,7 @@ Edit the file: Uncomment the line that gives the wheel group full power. Save.
 ### `mkinitcpio`
 
 Edit `/etc/mkinitcpio.conf`. Add `btrfs` under `MODULES`. 
-Under `HOOKS`, add `keyboard` (delete the potential later occurence) and `keymap` after `autodetect, and `encrypt` and `lvm2` before `filesystems`.
+Under `HOOKS`, add `keyboard` (delete the potential later occurence) and `keymap` after `autodetect`, and `encrypt` and `lvm2` before `filesystems`.
 Save end exit, then run `mkinitcpio -p linux`.
 
 ### GRUB Config for Encryption
@@ -148,7 +148,7 @@ Save end exit, then run `mkinitcpio -p linux`.
 Run `blkid` and copy the `UUID` (what is inside the quotes) of your encrypted device (`system`, **not** the `PARTUUID` and **not** the one of a mapper device).
 Then, edit `/etc/default/grub` and change the line that is `GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"` to:
 
-    GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet cryptdevice=UUID=[the UUID that you copied before]:cryptroot root=/dev/mapper/cryptroot"
+    GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet cryptdevice=UUID=[the UUID that you copied before]:cryptlvm root=/dev/LvmVolGroup/system"
 
 Regenerate the GRUB config file with `grub-mkconfig -o /boot/grub/grub.cfg`
 
