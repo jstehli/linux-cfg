@@ -9,3 +9,6 @@ Follow the pre-installation in the [installation guide](https://wiki.archlinux.o
 
 ## Disk Setup
 
+This is inspired by the following two videos, please support the guy who makes those, he helped me a lot: [1](https://www.youtube.com/watch?v=sm_fuBeaOqE) [2](https://www.youtube.com/watch?v=sm_fuBeaOqE)
+
+
