@@ -47,6 +47,8 @@ We want to encrypt the system partition and unlock it. We use LUKS1, which actua
     [follow menu]
     cryptsetup luksOpen /dev/nvme0n1p2 cryptlvm
 
+### Set Up LVM
+
 Create the LVM physical volume and volume group.
 
     pvcreate /dev/mapper/cryptlvm
@@ -57,67 +59,42 @@ Now create two logical volumes - system and swap. I have 24 GB RAM and use 32GB 
     lvcreate -L 32G LvmVolGroup -n swap
     lvcreate -l 100%FREE LvmVolGroup -n system
 
-Set up the swap partition:
+### Create the File Systems
 
-    mkswap /dev/nvme0n1p3
-    swapon /dev/nvme0n1p3
+Now, create the file systems.
 
+    mkfs.btrfs /dev/LvmVolGroup/system
+    mkswap /dev/LvmVolGroup/swap
 
+### Mount the File Systems and Set Up BTRFS
 
-
-
-
-
-    
-
-
-    n
-    2
-    [enter]
-    -32G
-    n
-    3
-    [enter]
-    [enter]
-    t
-    3
-    19
-
-
-  
-
-    
-S
-
-    
-Now, create the file system.
-
-    mkfs.btrfs /dev/mapper/cryptroot
-    
-### Mount the File Systems
-
-Mount the previously generated `cryptroot` and generate the BTRFS subvolumes that we need. We keep it minimal here and only prepare subvolumes for `/`, `/home`, and `/.snapshots'.
+I generate the BTRFS subvolumes that we need. I keep it minimal here and only prepare subvolumes for `/`, `/home`, and `/.snapshots'.
 You can set that up however you want if you know what you're doing. I do not really.
 
-    mount /dev/mapper/cryptroot /mnt
+    mount /dev/LvmVolGroup/system /mnt
     cd /mnt
     btrfs subvolume create @
     btrfs subvolume create @home
     btrfs subvolume create @snapshots
     cd
     umount /mnt
-    
+
 Mount all the freshly created subvolumes using some fancy options.
 
-    mount -o noatime,compress=zstd,space_cache=v2,discard=async,subvol=@ /dev/mapper/cryptroot /mnt
+    mount -o noatime,compress=zstd,space_cache=v2,discard=async,subvol=@ /dev/LvmVolGroup/system /mnt
     mkdir /mnt/home
-    mount -o noatime,compress=zstd,space_cache=v2,discard=async,subvol=@home /dev/mapper/cryptroot /mnt/home
+    mount -o noatime,compress=zstd,space_cache=v2,discard=async,subvol=@home /dev/LvmVolGroup/system /mnt/home
     mkdir /mnt/.snapshots
-    mount -o noatime,compress=zstd,space_cache=v2,discard=async,subvol=@snapshots /dev/mapper/cryptroot /mnt/.snapshots
-    
+    mount -o noatime,compress=zstd,space_cache=v2,discard=async,subvol=@snapshots /dev/LvmVolGroup/system /mnt/.snapshots
+
 We'll also need to mount the boot partition.
 
     mount --mkdir /dev/nvme0n1p1 /mnt/boot
+    
+And the swap partition.
+    
+    swapon /dev/LvmVolGroup/swap
+
 
 ## Installation
 
@@ -126,13 +103,13 @@ We'll also need to mount the boot partition.
 To speed up downloads during installation, you can use `reflector`.
 This will update the mirrorlist with recently updated mirrors in nearby countries, prioritized by speed (could take a couple of minutes, ignore the warnings).
 
-    reflector -c ch,de,at,it,fr --age 12 --sort rate --save /etc/pacman.d/mirrorlist
+    reflector -c ch,de,at,it,fr --age 8 --sort rate --save /etc/pacman.d/mirrorlist
 
 ### Install Packages
 
 We also install `git`, an editor (`vim`/`vi` in my case), `btrfs-progs` and `snapper` here. This will also take some time.
 
-    pacstrap /mnt base linux linux-firmware vi vim btrfs-progs snapper
+    pacstrap /mnt base linux linux-firmware git vi vim btrfs-progs snapper
     
 ## System Configuration
 
