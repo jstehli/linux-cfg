@@ -30,6 +30,9 @@ I have 24 GB of RAM, so I'll create a swap partition of 32 GB to be on the safe 
     2
     [enter]
     -32G
+    t
+    2
+    19
     n
     3
     [enter]
