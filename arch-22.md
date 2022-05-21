@@ -97,4 +97,40 @@ This will update the mirrorlist with recently updated mirrors in nearby countrie
 
 ### Install Packages
 
-We also install `git`, an editor (`vim` in my case), `btrfs-progs` and `snapper` here.
+We also install `git`, an editor (`vim`/`vi` in my case), `btrfs-progs` and `snapper` here. This will also take some time.
+
+    pacstrap /mnt base linux linux-firmware vi vim btrfs-progs snapper
+    
+## System Configuration
+
+I now follow the "configure the system" section in the official install guide.
+I skip the "Initramfs" and "Bootloader" part, we're going to do this later.
+
+### More Packages
+
+We should install a few things now.
+
+    pacman -S grub grub-btrfs efibootmgr intel-ucode networkmanager network-manager-applet wpa_supplicant rsync reflector
+    
+### Bootloader Config
+
+    grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+    grub-mkconfig -o /boot/grub/grub.cfg
+
+### Enable NetworkManager, Create a User, Set Up `sudo`
+
+    systemctl enable NetworkManager
+    useradd -mG wheel [username]
+    passwd [username]
+    [enter password]
+    visudo
+    
+Edit the file: Uncomment the line that gives the wheel group full power. Save.
+
+### `mkinitcpio`
+
+    vim /etc/mkinitcpio.conf
+    
+Add `btrfs` under `MODULES`. Under `HOOKS`, add `encrypt` before `filesystems`.
+    
+    
