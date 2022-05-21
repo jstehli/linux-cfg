@@ -93,5 +93,8 @@ We'll also need to mount the boot partition.
 To speed up downloads during installation, you can use `reflector`.
 This will update the mirrorlist with recently updated mirrors in nearby countries, prioritized by speed (could take a couple of minutes, ignore the warnings).
 
-  reflector -c ch,de,at,it,fr --age 12 --sort rate --save /etc/pacman.d/mirrorlist
+    reflector -c ch,de,at,it,fr --age 12 --sort rate --save /etc/pacman.d/mirrorlist
 
+### Install Packages
+
+We also install `git`, an editor (`vim` in my case), `btrfs-progs` and `snapper` here.
