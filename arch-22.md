@@ -17,22 +17,22 @@ We will install BTRFS and encrypt data at rest, incl. the swap partition. Note t
 
 Start by using `lsblk` to figure out the label of your disk. In my case, I have to do `fdisk /dev/nvme0n1`. Then, I create a new GPT table by entering `g`. Now, we are ready to create the first partition by entering `n`. We need to create a EFI partition, I use 512 MB for this, to be on the safe side.
 
-  n
-  1
-  +512M
-  t
-  1
+    n
+    1
+    +512M
+    t
+    1
  
 I have 24 GB of RAM, so I'll create a swap partition of 32 GB to be on the safe side as well. The rest will be used for the main partition. I like to have the swap partition as last partition. This can be achieved as follows.
 
-  n
-  2
-  [enter]
-  -32G
-  n
-  3
-  [enter]
-  [enter]
+    n
+    2
+    [enter]
+    -32G
+    n
+    3
+    [enter]
+    [enter]
   
 
 
