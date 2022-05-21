@@ -182,7 +182,7 @@ Follow [this link](https://support.system76.com/articles/system76-driver). If yo
 
 https://wiki.archlinux.org/title/Xorg
 
-    sudo pacman -S xorg-server i3-wm xorg-xinit
+    sudo pacman -S xorg-server i3-wm xorg-xinit dmenu i3status
 
 ### Shell
 
@@ -191,5 +191,19 @@ https://wiki.archlinux.org/title/Xorg
 ### Dotfile Management
 
 Use the bare git repo approach, documented all over the place.
+Setup a github repo called dotfiles. Then:
+
+    cd
+    git clone --bare https://github.com/jstehli/dotfiles.git .dotfiles
+    echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"' >> $HOME/.zshrc
+    source ~/.zshrc
+    dotfiles config --local status.showUntrackedFiles no
 
 
+
+# TODO
+
+make dotfiles push work to github
+make i3 work
+make snapper/snapshots work
+firefox
