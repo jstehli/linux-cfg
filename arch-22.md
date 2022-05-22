@@ -187,10 +187,12 @@ https://wiki.archlinux.org/title/Xorg
 ### Shell & Terminal
 
     pacman -S zsh rxvt-unicode
+    
+Change the default shell: arch wiki...
 
 ### Dotfile Management
 
-Use the bare git repo approach, documented all over the place.
+Use the bare git repo approach.
 Setup a github repo called dotfiles. Then:
 
     cd
@@ -199,11 +201,29 @@ Setup a github repo called dotfiles. Then:
     source ~/.zshrc
     dotfiles config --local status.showUntrackedFiles no
 
+### Internet Browsing
 
+    sudo pacman -S firefox
+
+Recommended extensions are uBlock origin & KeePassXC-browser.
+
+### Audio
+
+    sudo pacman -S pulseaudio pasystray pavucontrol
+    pulseaudio -D
+
+### Password Management
+
+I use `keepassxc`. (https://wiki.archlinux.org/title/KeePass) is documented quite well. Firefox integration is available.
+I sync the database file via cloud storage currently (to my other devices), works fine.
+
+### Cloud Storage
+
+I am currently using Dropbox and want to switch to something else eventually.
+I installed it from AUR and followed the doc in the Arch wiki.
 
 # TODO
 
 make dotfiles push work to github
 make i3 work
 make snapper/snapshots work
-firefox
