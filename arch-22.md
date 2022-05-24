@@ -171,12 +171,14 @@ Install `yay`.
 
 ## Set Up the System
 
-### System 76 Driver
+### System 76
 
 Follow [this link](https://support.system76.com/articles/system76-driver). If you installed `yay`, you simply can do
 
     yay system76-driver
     sudo systemctl enable --now system76
+    
+Then, there is more to install [here](https://support.system76.com/articles/system76-software)
 
 ### Display Server / Window Manager
 
