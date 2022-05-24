@@ -229,3 +229,4 @@ I installed it from AUR and followed the doc in the Arch wiki.
 make dotfiles push work to github
 make i3 work
 make snapper/snapshots work
+add snapper config back here..
