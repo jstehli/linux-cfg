@@ -224,6 +224,16 @@ I sync the database file via cloud storage currently (to my other devices), work
 I am currently using Dropbox and want to switch to something else eventually.
 I installed it from AUR and followed the doc in the Arch wiki.
 
+### Snapper
+
+.. follow the video, I did not save when I copied the steps
+
+### Hibernation
+
+edit `/etc/default/grub` and add, under `GRUB_CMDLINE_LINUX_DEFAULT`, `resume=/dev/LvmVolGroup/swap`. Rebuild the grub config with `grub-mkconfig -o /boot/grub/grub.cfg`.
+
+
+
 # TODO
 
 make dotfiles push work to github
