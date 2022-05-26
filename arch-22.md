@@ -232,7 +232,7 @@ I installed it from AUR and followed the doc in the Arch wiki.
 
 edit `/etc/default/grub` and add, under `GRUB_CMDLINE_LINUX_DEFAULT`, `resume=/dev/LvmVolGroup/swap`. Rebuild the grub config with `grub-mkconfig -o /boot/grub/grub.cfg`.
 
-
+Also edit `/etc/mkinitcpio.conf`, add `resume` between `filesystems` and `fsck`, then run `mkinitcpio -P`.
 
 # TODO
 
