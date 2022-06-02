@@ -223,6 +223,7 @@ I sync the database file via cloud storage currently (to my other devices), work
 
 I am currently using Dropbox and want to switch to something else eventually.
 I installed it from AUR and followed the doc in the Arch wiki.
+Update: For now, I will stick to it. There is documentation in the Arch wiki on how to set up `encfs` with it, s.t. you have encrypted Files.
 
 ### Snapper
 
